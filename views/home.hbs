@@ -1,0 +1,43 @@
+<form method="post">
+<ul class="categories">
+  {{#each options}}
+    <li>
+      <h3>Category: {{@key}}</h3>
+      <ul class="groups">
+      {{#each this}}
+        <li>
+          <h4>Group: {{@key}}</h4>
+          <ul class="groups">
+          {{#each this}}
+            <li>
+              <h5>{{@key}}</h5>
+              <ul class="texture">
+              {{#each this}}
+                <li>
+                  <label for="{{this.id}}">
+                    <input type="radio" name="textures[{{this.category}}/{{this.group}}/{{this.texture}}]" id="{{this.id}}" value="{{this.id}}" />
+                    <img src="/git{{this.preview}}" alt="{{this.name}}" class="preview" />
+                    {{this.name}}
+                  </label>
+                </li>
+              {{/each}}
+              </ul>
+            </li>
+          {{/each}}
+          </ul>
+        </li>
+      {{/each}}
+      </ul>
+    </li>
+  {{/each}}
+</ul>
+<p>
+  <label>
+    Pack Description
+    <input type="text" name="description" />
+  </label>
+</p>
+<p>
+  <button type="Submit">Download Pack</button>
+</p>
+</form>
