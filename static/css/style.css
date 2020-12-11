@@ -116,3 +116,15 @@ body {
   width: 100%;
   display: block;
 }
+
+/* image-rendering behaves differently on firefox than on other browsers
+ * this should bring it in line for now
+ * as browsers gradually change their implementation of this relatively new property,
+ * this file may need further maintenance to keep these previews unblurred
+ * or eventually this section may be removed if they get their algorithms in line
+ */
+@-moz-document url-prefix() {
+  .preview {
+    image-rendering: crisp-edges;
+  }
+}
