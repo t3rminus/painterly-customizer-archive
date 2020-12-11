@@ -2,26 +2,24 @@
 <ul class="categories">
   {{#each options}}
     <li>
-      <h3>Category: {{@key}}</h3>
+      <h3>{{capitalizeAll this.name}}</h3>
       <ul class="groups">
-      {{#each this}}
+      {{#each this.textures}}
         <li>
-          <h4>Group: {{@key}}</h4>
-          <ul class="groups">
-          {{#each this}}
-            <li>
-              <h5>{{@key}}</h5>
-              <ul class="texture">
-              {{#each this}}
-                <li>
-                  <label for="{{this.id}}">
-                    <input type="radio" name="textures[{{this.category}}/{{this.group}}/{{this.texture}}]" id="{{this.id}}" value="{{this.id}}" />
-                    <img src="/git{{this.preview}}" alt="{{this.name}}" class="preview" />
-                    {{this.name}}
-                  </label>
-                </li>
-              {{/each}}
-              </ul>
+          <h5>{{capitalizeAll this.name}}</h5>
+          <ul class="texture">
+          {{#each this.options}}
+            <li class="{{this.class}}">
+              <label for="{{this.id}}">
+                <input type="radio" name="textures[{{this.category}}/{{this.group}}/{{this.texture}}]" id="{{this.id}}" value="{{this.id}}" />
+                <div class="texture-group">
+                  <img src="/git{{this.preview}}" alt="{{this.name}}" class="preview" />
+                  <div class="texture-group__text">
+                    <div class="texture-group__name">{{this.name}}</div>
+                    <div class="texture-group__author">{{capitalizeAll this.author}}</div>
+                  </div>
+                </div>
+              </label>
             </li>
           {{/each}}
           </ul>

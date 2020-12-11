@@ -1,6 +1,7 @@
 import path from 'path';
 import express from 'express';
 import exphbs from 'express-handlebars';
+import helpers from 'handlebars-helpers';
 import { getConfig, updateGit } from './lib/misc.js';
 import { updateOptions, getOptions } from './lib/db.js';
 import { buildPack } from './lib/pack.js';
@@ -9,7 +10,10 @@ const app = express();
 
 app.use(express.urlencoded());
 
-app.engine('.hbs', exphbs({ extname: '.hbs' }));
+app.engine('.hbs', exphbs({
+  extname: '.hbs',
+  helpers: helpers()
+}));
 app.set('view engine', '.hbs');
 
 app.get('/update', async (req, res) => {
@@ -34,4 +38,10 @@ app.get(/git.+\.png$/, async (req, res) => {
 
 app.use(express.static('./static'));
 
-app.listen(process.env.PORT || 3000);
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.info(`Started server on port ${port}`);
+  await updateGit();
+  await updateOptions();
+  console.info(`Updated info from GitHub`);
+});

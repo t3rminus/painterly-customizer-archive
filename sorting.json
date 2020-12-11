@@ -1,0 +1,12 @@
+{
+  "categories": {
+    "basic": 1,
+    "decorative": 2,
+    "misc": 3
+  },
+  "textures": {
+    "dirt": 1,
+    "grass": 2,
+    "glass": 100
+  }
+}
