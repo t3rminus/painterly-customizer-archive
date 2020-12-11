@@ -17,7 +17,9 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs');
 
 app.get('/update', async (req, res) => {
-  await updateGit();
+  if(!process.env.NO_PULL) {
+    await updateGit();
+  }
   await updateOptions();
   res.redirect('/');
 });
@@ -41,7 +43,9 @@ app.use(express.static('./static'));
 const port = process.env.PORT || 3000;
 app.listen(port, async () => {
   console.info(`Started server on port ${port}`);
-  await updateGit();
+  if(!process.env.NO_PULL) {
+    await updateGit();
+  }
   await updateOptions();
   console.info(`Updated info from GitHub`);
 });

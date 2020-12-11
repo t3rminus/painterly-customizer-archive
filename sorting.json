@@ -6,7 +6,8 @@
   },
   "textures": {
     "dirt": 1,
-    "grass": 2,
+    "coarse_dirt": 2,
+    "grass": 30,
     "glass": 100
   }
 }
