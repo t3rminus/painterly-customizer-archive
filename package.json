@@ -20,5 +20,8 @@
     "nedb-promises": "^4.1.0",
     "nodegit": "^0.27.0",
     "sharp": "^0.26.3"
+  },
+  "devDependencies": {
+    "lerna": "^3.22.1"
   }
 }
