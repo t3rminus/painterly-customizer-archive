@@ -3,9 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-scripts": "4.0.1"
+    "react-scripts": "4.0.1",
+    "react-tooltip": "^4.2.15"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,6 +16,7 @@
     "eject": "react-scripts eject",
     "lint": "npx eslint --fix src/**/*.js*"
   },
+  "proxy": "http://localhost:5000",
   "eslintConfig": {
     "env": {
       "browser": true,
@@ -34,7 +37,15 @@
       "react"
     ],
     "rules": {
-      "space-before-function-paren": ["error", "never"]
+      "space-before-function-paren": [
+        "error",
+        {
+          "anonymous": "always",
+          "named": "never",
+          "asyncArrow": "always"
+        }
+      ],
+      "react/prop-types": "off"
     },
     "settings": {
       "react": {

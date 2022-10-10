@@ -1,0 +1,35 @@
+@import 'settings.scss';
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: #394e18 url('./assets/grass.png') repeat center;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1, h2, h3, h4, h5, h6, p, ol, ul, blockquote, figure {
+  margin: 0 0 $padding 0;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+}
+
+p, ol, ul, blockquote, figure {
+  line-height: 1.4;
+}

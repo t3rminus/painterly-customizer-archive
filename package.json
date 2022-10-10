@@ -2,25 +2,16 @@
   "name": "painterly-customizer",
   "version": "0.1.0",
   "description": "A new customizer for Painterly Fan Continuation",
-  "main": "index.js",
+  "main": "packages/back/src/index.js",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "lerna run lint --stream",
+    "start": "lerna run start --stream",
+    "build": "lerna run build"
   },
   "author": "Kevin S <kevin@chilicode.ca>",
   "license": "UNLICENSED",
-  "dependencies": {
-    "archiver": "^5.1.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "fs-extra": "^9.0.1",
-    "glob": "^7.1.6",
-    "handlebars-helpers": "^0.10.0",
-    "nedb-promises": "^4.1.0",
-    "nodegit": "^0.27.0",
-    "sharp": "^0.26.3"
-  },
   "devDependencies": {
     "lerna": "^3.22.1"
   }

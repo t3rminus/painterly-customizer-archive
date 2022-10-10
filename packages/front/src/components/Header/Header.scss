@@ -1,0 +1,10 @@
+@import '../../settings.scss';
+
+.header {
+  padding: $padding;
+  background-color: black;
+  color: white;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column-reverse;
+}
